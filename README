@@ -1,0 +1,63 @@
+Team members:
+=============
+- Jay Shah
+- Aditya Nagesh Govardhan
+- Kunal Vinay Kumar Suthar
+
+Prerequisites:
+==============
+- Bash Shell
+- Runs on Linux/Mac machines
+- yolov3-tiny.weights file needs to be present in the same directory as infrastructure.sh script
+
+Deployment through script:
+==========================
+The source code comes along with a bash script (infrastructure.sh) that can be used for bringing up the infrastructure, deploying the project and bringing down the infrastructure. The requirement for successful use of these scripts is that the project folders of WebTier, AppTier and AppTier_Terminator, deployment files WebTier.sh and AppTier.sh, project files darknet_test.py and yolov3-tiny.weights should be in the same folder as infrastructure.sh file.
+
+To bring up the initial infrastructure, following bash commands are executed:
+
+	$ bash  infrastructure.sh  create
+
+To deploy the project, following bash commands are executed:
+
+	$ bash  infrastructure.sh  deploy-project
+
+To bring down the infrastructure, following bash commands are executed:
+
+	$ bash  infrastructure.sh  destroy
+
+Accessing the project:
+======================
+Go to http://[WEB_INSTANCE_IP]:8080/reqobj
+OR
+Go to http://[WEB_INSTANCE_IP]:8080 and click the button through browser
+
+For directly accessing the application:
+Go to 13.57.125.202:8080/reqobj
+
+S3 Bucket:
+==========
+The S3 bucket name is vs_result_bucket_adi
+
+Credentials:
+============
+aws_access_key_id = *********************
+aws_secret_access_key = ******************************
+
+The credentials are also present in file name "credentials"
+
+Region:
+=======
+The project is deployed in us-west-1 region
+
+
+Our project application meets the following requirements:
+1. The primary requirement of request response cycle - request from user to WebTier, alerting from WebTier to AppTier through input SQS queue, object detection by deep learning model, return of results to output SQS queue and response from WebTier to the user - is robustly and successfully achieved.
+2. Scaling in and scaling out feature is implemented using algorithm for autoscaling mentioned previously, improving the throughput of application.
+3. The best performance which we got for dealing with 20 Concurrent requests in total 40 requests was 2 minutes 36 seconds.
+The best performance which we got for dealing with 100 Concurrent requests in total 100
+requests was 11 minutes 20 seconds.
+4. All the inputs-video names and outputs-detection results are stored in S3 for persistence in the form of (“video-pie3-0326091636.h264”, “chair”).
+5. The application handles all the requests as fast as possible, does not miss any request and all object detections are correct.
+6. Performs Deep Learning - Detecting objects on videos and hence provides a video surveillance service to users in real time.
+7. Security features are implemented using AWS services of VPC and IAM.
