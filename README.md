@@ -1,3 +1,5 @@
+![alt text](https://github.com/jaygshah/Video-Survelliance-As-A-Service/blob/master/architecture.jpg)
+
 # Prerequisites:
 ==============
 - Bash Shell
@@ -45,7 +47,7 @@ Region:
 The project is deployed in us-west-1 region
 
 
-Our project application meets the following requirements:
+*Our project application meets the following requirements:*
 1. The primary requirement of request response cycle - request from user to WebTier, alerting from WebTier to AppTier through input SQS queue, object detection by deep learning model, return of results to output SQS queue and response from WebTier to the user - is robustly and successfully achieved.
 2. Scaling in and scaling out feature is implemented using algorithm for autoscaling mentioned previously, improving the throughput of application.
 3. The best performance which we got for dealing with 20 Concurrent requests in total 40 requests was 2 minutes 36 seconds.
