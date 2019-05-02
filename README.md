@@ -1,13 +1,11 @@
 ![alt text](https://github.com/jaygshah/Video-Survelliance-As-A-Service/blob/master/architecture.jpg)
 
 # Prerequisites:
-==============
 - Bash Shell
 - Runs on Linux/Mac machines
 - yolov3-tiny.weights file needs to be present in the same directory as infrastructure.sh script
 
 # Deployment through script:
-==========================
 The source code comes along with a bash script (infrastructure.sh) that can be used for bringing up the infrastructure, deploying the project and bringing down the infrastructure. The requirement for successful use of these scripts is that the project folders of WebTier, AppTier and AppTier_Terminator, deployment files WebTier.sh and AppTier.sh, project files darknet_test.py and yolov3-tiny.weights should be in the same folder as infrastructure.sh file.
 
 To bring up the initial infrastructure, following bash commands are executed:
@@ -23,7 +21,6 @@ To bring down the infrastructure, following bash commands are executed:
 	$ bash  infrastructure.sh  destroy
 
 # Accessing the project:
-======================
 Go to http://[WEB_INSTANCE_IP]:8080/reqobj
 OR
 Go to http://[WEB_INSTANCE_IP]:8080 and click the button through browser
@@ -32,18 +29,16 @@ For directly accessing the application:
 Go to 13.57.125.202:8080/reqobj
 
 # S3 Bucket:
-==========
 The S3 bucket name is vs_result_bucket_adi
 
 Credentials:
-============
 aws_access_key_id = *********************
 aws_secret_access_key = ******************************
 
 The credentials are also present in file name "credentials"
 
 Region:
-=======
+
 The project is deployed in us-west-1 region
 
 
